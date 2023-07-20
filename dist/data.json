@@ -1,0 +1,111 @@
+{
+    "type": "page",
+    "title": "Hello world",
+    "style":{},
+    "body": [
+        {
+            "type": "container-ordinary",
+            "style": {
+                "position": "relative",
+                "width": "100%",
+                "zIndex": 1
+            },
+            "children": [
+                {
+                    "type": "button",
+                    "style": {
+                        "position": "relative",
+                        "zIndex": 1
+                    },
+                    "buttonstyle":"primary",
+                    "size":"default",
+                    "icon":{},
+                    "twiceComfire":{},
+                    "bubblePrompt":{"triggerMode":"鼠标悬浮","promptLocation":"下"},
+                    "isDisable": false,
+                    "children":"我的按钮"
+                },
+                {
+                    "type": "text",
+                    "style": {
+                        "position": "relative",
+                        "fontSize": "20px",
+                        "color": "blue",
+                        "zIndex": 1
+                    },
+                    "children":"(｡･∀･)ﾉﾞ"
+                },
+                {
+                    "type": "input",
+                    "value": "",
+                    "inputStyle": "text",
+                    "size":"default",
+                    "defaultValue":"123",
+                    "placeholder": "",
+                    "showPassword": false,
+                    "clearable": false,
+                    "maxlength": "",
+                    "minlength": "",
+                    "showWordLimit": true,
+                    "style": {
+                      "position": "relative",
+                      "zIndex": 1
+                    },
+                    "children": ""
+                }
+            ]
+        },
+        {
+            "type": "container-ordinary",
+            "style": {
+                "position": "relative",
+                "width": "100%",
+                "zIndex": 1
+            },
+            "children": [
+                {
+                    "type": "button",
+                    "style": {
+                        "position": "relative",
+                        "zIndex": 1
+                    },
+                    "buttonstyle":"primary",
+                    "size":"default",
+                    "icon":{},
+                    "twiceComfire":{},
+                    "bubblePrompt":{"triggerMode":"鼠标悬浮","promptLocation":"下"},
+                    "isDisable": false,
+                    "children":"我的按钮"
+                },
+                {
+                    "type": "text",
+                    "style": {
+                        "position": "relative",
+                        "fontSize": "20px",
+                        "color": "blue",
+                        "zIndex": 1
+                    },
+                    "children":"(｡･∀･)ﾉﾞ"
+                },
+                {
+                    "type": "input",
+                    "value": "",
+                    "inputStyle": "text",
+                    "size":"default",
+                    "defaultValue":"123",
+                    "placeholder": "",
+                    "showPassword": false,
+                    "clearable": false,
+                    "maxlength": "",
+                    "minlength": "",
+                    "showWordLimit": true,
+                    "style": {
+                      "position": "relative",
+                      "zIndex": 1
+                    },
+                    "children": ""
+                }
+            ]
+        }
+    ]
+}
