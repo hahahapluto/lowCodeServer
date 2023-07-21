@@ -112,7 +112,7 @@ async function generateFile() {
     const element = htmlAndStyle[i];
     $("body").appendChild(element[0]);
     await ajax({
-      url: "http://127.0.0.1:8080/api/getStyleData",
+      url: "http://127.0.0.1:8081/api/getStyleData",
       type: "post",
       data: JSON.stringify({
         fileName: `container${id++}`,
