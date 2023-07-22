@@ -1,5 +1,5 @@
-//导入express
-const express = require("express");
+const express = require("express"); //导入express
+const joi = require("joi"); //
 const http = require("http");
 const server = http.createServer();
 //创建web服务器
@@ -24,11 +24,29 @@ app.use(cors());
 
 // 导入并使用用户路由模块
 const userRouter = require("./router/user");
-app.use("/api", userRouter);
+app.use("/user", userRouter);
+
+// 导入解析 token 的中间件
+const expressJwt = require("express-jwt");
+const config = require("./config");
+app.use(
+  expressJwt({ secret: config.jwtSecreKey }).unless({ path: [/^\/user/] })
+); // 除了user路径的不需要身份验证其他都需要
 
 // 导入并使用页面路由模块
 const pagesRouter = require("./router/pages");
 app.use("/api", pagesRouter);
+
+// 错误级别的中间件
+app.use((err, req, res, next) => {
+  // 验证失败导致的错误
+  if (err instanceof joi.ValidationError) return res.sendErr(err);
+  // 身份认证之后的错误
+  if (err.name === "UnauthorizedError") return res.sendErr("身份验证失败！");
+  // 未知的错误
+  res.sendErr(err);
+  next();
+});
 
 server.on("request", (req, res) => {
   //1.获取请求的 url 地址
