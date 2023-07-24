@@ -8,6 +8,9 @@ const userHandler = require("../controllers/user");
 const expressJoi = require("@escook/express-joi");
 const { login_schema } = require("../tools/schema/user");
 
+// 检测用户名是否存在
+router.post("/checkIfUserExist", userHandler.checkIfUserExist);
+
 // 注册新用户
 router.post("/reguser", expressJoi(login_schema), userHandler.regUser);
 

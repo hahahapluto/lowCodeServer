@@ -118,6 +118,9 @@ async function generateFile() {
         fileName: `container${id++}`,
         style: uptoLow(removeQuotationMarks(element[1])),
       }),
+      Headers: {
+        token: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiIiwiaWF0IjoxNjkwMTg2OTE4LCJleHAiOjE2OTAyMjI5MTh9.pI__mqOKUc-f9i1EVLMrk5c41urnN35AS4MoUcVdC8U`,
+      },
       dataType: "json",
       success: function (req) {
         let msg = JSON.parse(req).msg;

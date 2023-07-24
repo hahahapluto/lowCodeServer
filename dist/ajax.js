@@ -20,6 +20,8 @@ function ajax(options) {
   } else if (options.type == "POST") {
     xhr.open("POST", options.url);
     xhr.setRequestHeader("Content-Type", "application/json;charset=utf8");
+    console.log(options.Headers.token);
+    xhr.setRequestHeader("Authorization", options.Headers.token);
     // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(options.data);
   }
