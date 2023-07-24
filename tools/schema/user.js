@@ -20,3 +20,11 @@ const password = joi
 exports.login_schema = {
   body: { username, password },
 };
+
+exports.password_schema = {
+  body: { password },
+};
+
+exports.username_schema = {
+  body: { username },
+};
