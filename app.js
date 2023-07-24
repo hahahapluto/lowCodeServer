@@ -28,7 +28,7 @@ app.use("/user", userRouter);
 
 // 导入解析 token 的中间件
 const expressJwt = require("express-jwt");
-const config = require("./config");
+const config = require("./config/jwtConfig");
 app.use(
   expressJwt({ secret: config.jwtSecreKey }).unless({ path: [/^\/user/] })
 ); // 除了user路径的不需要身份验证其他都需要

@@ -2,9 +2,9 @@
  * 供 /router/user.js 模块进行使用
  */
 
-const db = require("../db/index"); // 导入数据库操作模块
+const db = require("../config/db/index"); // 导入数据库操作模块
 const jwt = require("jsonwebtoken"); // 导入生成 Token 的包
-const config = require("../config"); // 导入配置-密钥
+const config = require("../config/jwtConfig"); // 导入配置-密钥
 // 注册用户的处理函数
 exports.regUser = (req, res) => {
   const userInfo = req.body; // 用户提交的信息数据
