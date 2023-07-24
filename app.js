@@ -37,6 +37,10 @@ app.use(
 const pagesRouter = require("./router/pages");
 app.use("/api", pagesRouter);
 
+// 导入并使用编辑数据路由模块
+const editDataRouter = require("./router/editData");
+app.use("/", editDataRouter);
+
 // 错误级别的中间件
 app.use((err, req, res, next) => {
   // 验证失败导致的错误
