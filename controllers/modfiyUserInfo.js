@@ -40,6 +40,10 @@ exports.modifyUsername = (req, res) => {
     if (err) return res.sendErr(err);
     // 判断影响行数是否为 1
     if (results.affectedRows !== 1) return res.sendErr("修改用户名失败");
-    res.sendErr("修改用户名成功！", 0);
+    res.send({
+      status: 0,
+      msg: "修改用户名成功",
+      username: newUserInfo.username,
+    });
   });
 };

@@ -33,7 +33,7 @@ app.use(
   expressJwt({ secret: config.jwtSecreKey }).unless({ path: [/^\/user/] })
 ); // 除了user路径的不需要身份验证其他都需要
 
-// 导入并使用修改用户信息
+// 导入并使用修改用户信息路由模块
 const modfiyUserRouter = require("./router/modfiyUserInfo");
 app.use("/modfiyUserInfo", modfiyUserRouter);
 
