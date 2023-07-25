@@ -10,8 +10,7 @@ exports.getEditData = (req, res) => {
     if (err) {
       return res.sendErr(err);
     }
-    res.send({
-      code: 200,
+    res.SendSuccess({
       msg: "获取成功",
       editData: results,
     });
@@ -20,34 +19,45 @@ exports.getEditData = (req, res) => {
 
 // 删除数据
 exports.delEditData = (req, res) => {
-  const selectSql = "delete from editData where id=?";
-  db.query(selectSql, req.body?.id, (err, results) => {
+  const deleteSql = "delete from editData where id=?";
+  db.query(deleteSql, req.body?.id, (err, results) => {
     if (err) {
       return res.sendErr(err);
     }
     if (results.affectedRows === 1) {
-      console.log("删除页面成功");
-      res.send({ code: 200, msg: "删除页面成功" });
+      res.SendSuccess("删除页面成功");
     } else {
-      console.log("删除页面失败");
-      res.send({ code: 200, msg: "删除页面失败" });
+      res.sendErr("删除页面失败");
     }
   });
 };
 //添加数据
 exports.addEditData = (req, res) => {
-  const selectSql = "insert into editData set ?";
+  const insertSql = "insert into editData set ?";
   let data = { ...req.body, uId: req.user.id };
-  db.query(selectSql, data, (err, results) => {
+  db.query(insertSql, data, (err, results) => {
     if (err) {
       return res.sendErr(err);
     }
     if (results.affectedRows === 1) {
-      console.log("添加页面成功");
-      res.send({ code: 200, msg: "添加页面成功" });
+      console.log(results);
+      res.SendSuccess({msg:"添加页面成功",id:results.insertId});
     } else {
-      console.log("添加页面失败");
-      res.send({ code: 200, msg: "添加页面失败" });
+      res.sendErr("添加页面失败");
+    }
+  });
+};
+//更新数据
+exports.updateEditData = (req, res) => {
+  const updateSql = `update editData set title='${req.body.title}',jsonData = ? where id = ${req.body.id}`;
+  db.query(updateSql,req.body.jsonData,(err, results) => {
+    if (err) {
+      return res.sendErr(err);
+    }
+    if (results.affectedRows === 1) {
+      res.SendSuccess("修改页面成功");
+    } else {
+      res.sendErr("修改页面失败");
     }
   });
 };

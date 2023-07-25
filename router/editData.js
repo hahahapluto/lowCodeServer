@@ -8,5 +8,6 @@ const controllers = require("../controllers/editData");
 router.get("/getEditData", controllers.getEditData);
 router.post("/delEditData", controllers.delEditData);
 router.post("/addEditData", controllers.addEditData);
+router.post("/updateEditData", controllers.updateEditData);
 // 导出router
 module.exports = router;

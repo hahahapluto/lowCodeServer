@@ -15,6 +15,14 @@ app.use((req, res, next) => {
   res.sendErr = function (err, status = 1) {
     res.send({ status, msg: err instanceof Error ? err.message : err });
   };
+  res.SendSuccess = (option) => {
+    let code = option.code || 200;
+    if (typeof option === "string") {
+      res.send({ code, msg: option });
+    }else{
+      res.send({ code, ...option });
+    }
+  };
   next();
 });
 
