@@ -6,10 +6,14 @@ const router = express.Router();
 const userHandler = require("../controllers/user");
 // 导入验证数据的中间件
 const expressJoi = require("@escook/express-joi");
-const { login_schema } = require("../tools/schema/user");
+const { login_schema, username_schema } = require("../tools/schema/user");
 
 // 检测用户名是否存在
-router.post("/checkIfUserExist", userHandler.checkIfUserExist);
+router.post(
+  "/checkIfUserExist",
+  expressJoi(username_schema),
+  userHandler.checkIfUserExist
+);
 
 // 注册新用户
 router.post("/reguser", expressJoi(login_schema), userHandler.regUser);
