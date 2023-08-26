@@ -1,0 +1,23 @@
+.EditorPreview {
+  position: relative;
+
+  #body {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  &-leftMessage {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 40px;
+    background-color: #494949;
+    color: #fff;
+    opacity: 0.8;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    z-index: 10000000000;
+  }
+}

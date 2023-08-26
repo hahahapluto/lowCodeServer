@@ -33,7 +33,7 @@ app.use(cors());
 // 导入并使用用户路由模块
 const userRouter = require("./router/user");
 app.use("/user", userRouter);
-
+ 
 // 导入解析 token 的中间件
 const expressJwt = require("express-jwt");
 const config = require("./config/jwtConfig");
@@ -52,6 +52,9 @@ app.use("/api", pagesRouter);
 // 导入并使用编辑数据路由模块
 const editDataRouter = require("./router/editData");
 app.use("/", editDataRouter);
+
+const testRender = require("./router/generateZipFile");
+app.use("/", testRender);
 
 // 错误级别的中间件
 app.use((err, req, res, next) => {
