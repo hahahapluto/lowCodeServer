@@ -22,8 +22,6 @@ exports.getPackage = async (req, res) => {
       console.log(`打包成功：${stdout}`);
       try {
         const timeString = new Date().toLocaleDateString().replace(/\//g, "-");
-        // 压缩刚刚创建的代码文件
-        const filePaths = ["web/renderer/dist"];
 
         // 先创建一个可写流，用于传入压缩包数据
         const output = fs.createWriteStream(`lowcode${timeString}.zip`);
@@ -41,11 +39,9 @@ exports.getPackage = async (req, res) => {
 
         // 使用pipe将两个流连接，开始写压缩包数据
         archive.pipe(output);
-        for (const i of filePaths) {
-          // directory方法是压缩目录，可以传两个参数：第一个参数是源目录路径，第二个参数是文件夹在压缩包
-          // 里面的目录路径，如果第二个参数为false的话，则就是压缩包内部不会新建目录
-          archive.directory(i, "lowcode");
-        }
+        // directory方法是压缩目录，可以传两个参数：第一个参数是源目录路径，第二个参数是文件夹在压缩包
+        // 里面的目录路径，如果第二个参数为false的话，则就是压缩包内部不会新建目录
+        archive.directory("web/renderer/dist", "lowcode");
         // 生成完后将zip文件删除，需要注意的是该监听方法应该写于调用finalize之前
         output.on("close", () => {
           console.log(`
