@@ -1,1 +1,83 @@
-{"page":{"type":"page","title":"Hello world","style":{},"children":["text-8adc9764","container-free-eb438935"],"subtitle":""},"text-8adc9764":{"children":"这是新建好的页面！","type":"text","style":{"position":"relative","fontSize":"16px","color":"black","zIndex":1},"parent":"page"},"container-free-eb438935":{"type":"container-free","style":{"position":"relative","width":"100%","zIndex":1},"children":[],"parent":"page"}}
+{
+  "page": {
+    "type": "page",
+    "title": "Hello world",
+    "style": {},
+    "children": [
+      "input-98eabf4c",
+      "text-8adc9764",
+      "container-free-9a8ca1ff",
+      "radio-1bc0b1c3"
+    ],
+    "subtitle": ""
+  },
+  "input-98eabf4c": {
+    "type": "input",
+    "value": "",
+    "inputStyle": "text",
+    "size": "default",
+    "placeholder": "请输入",
+    "showPassword": false,
+    "showWordLimit": false,
+    "style": { "position": "relative", "zIndex": 1 },
+    "children": "",
+    "classList": [],
+    "parent": "page"
+  },
+  "text-8adc9764": {
+    "children": "这是新建好的页面！",
+    "type": "text",
+    "style": {
+      "position": "relative",
+      "fontSize": "16px",
+      "color": "black",
+      "zIndex": 1,
+      "border": "1px dashed rgba(0,0,0)"
+    },
+    "parent": "page",
+    "classList": [],
+    "label": "h1",
+    "events": []
+  },
+  "container-free-9a8ca1ff": {
+    "type": "container-free",
+    "style": {
+      "position": "relative",
+      "width": "100%",
+      "zIndex": 1,
+      "overflowY": "auto",
+      "overflowX": "visible",
+      "display": "block"
+    },
+    "children": ["input-5ba2bfc9"],
+    "classList": [],
+    "parent": "page"
+  },
+  "input-5ba2bfc9": {
+    "type": "input",
+    "value": "",
+    "inputStyle": "text",
+    "size": "default",
+    "placeholder": "请输入",
+    "showPassword": false,
+    "showWordLimit": false,
+    "style": { "position": "relative", "zIndex": 1 },
+    "children": "",
+    "classList": [],
+    "parent": "container-free-9a8ca1ff"
+  },
+  "radio-1bc0b1c3": {
+    "value": "",
+    "type": "radio",
+    "title": "单选框",
+    "style": { "box": { "display": "block" }, "title": {}, "radio": {} },
+    "children": "",
+    "radioData": [
+      { "value": "选项1", "radio": false },
+      { "value": "选项2", "radio": false },
+      { "value": "选项3", "radio": false }
+    ],
+    "classList": [],
+    "parent": "page"
+  }
+}
